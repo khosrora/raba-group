@@ -1,0 +1,46 @@
+<%- include("../includes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">جزئیات پیام</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عنوان </label>
+            <p>
+                <%= contactUs.title %>
+            </p>
+            <label for="">نام و نام خانوادگی</label>
+            <p>
+                <%= contactUs.fullname %>
+                    <%= contactUs.lastName %>
+            </p>
+            <label for="">پست الکترونیک</label>
+            <p>
+                <%= contactUs.email %>
+            </p>
+            <label for="">پیام</label>
+            <p>
+                <%= contactUs.message %>
+            </p>
+            <label for="">تاریخ ثبت نام</label>
+            <p>
+                <%= jalaliMoment(contactUs.createdAt) %>
+            </p>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/FooterSecure.ejs") %>

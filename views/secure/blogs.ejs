@@ -1,0 +1,66 @@
+<%- include("../includes/HeaderSecure.ejs") %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">لیست بلاگ ها</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-left">
+                            <li class="breadcrumb-item"><a href="/admin/home" style="color: #000;">خانه</a></li>
+                            <li class="breadcrumb-item active">بلاگ</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- /.Main Page -->
+        <%- include("../includes/flash.ejs") %>
+            <div class="col-4">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">عنوان</th>
+                        <th>تاریخ نگارش</th>
+                        <th>نویسنده</th>
+                        <th scope="col">عملیات ها</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let blog of blogs) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index ++ %>
+                            </th>
+                            <td>
+                                <%= blog.title %>
+                            </td>
+                            <td>
+                                <%= jalaliMoment(blog.createdAt) %>
+                            </td>
+                            <td>
+                                <%= blog.user.fullname %>
+                            </td>
+                            <td class="text-white">
+                                <a href="/admin/edit-blog/<%= blog._id%>" type="button"
+                                    class="btn btn-warning text-white">ویرایش</a>
+                                <a href="/admin/delete-blog/<%= blog._id%>" type="button" class="btn btn-danger">حذف</a>
+                                <a href="/detail-blog/<%= blog._id%>" type="button" class="btn btn-success ">مشاهده</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                </tbody>
+            </table>
+            <!-- /.Main Page -->
+            <%- include("../includes/pagination.ejs") %>
+    </div>
+    <!-- /.content-wrapper -->
+    <%- include("../includes/FooterSecure.ejs") %>

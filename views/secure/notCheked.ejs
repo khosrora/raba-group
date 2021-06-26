@@ -1,0 +1,71 @@
+<%- include("../includes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">لیست درخواست های مشاوره تایید نشده</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-left">
+                            <li class="breadcrumb-item"><a href="/admin/home" style="color: #000;">خانه</a></li>
+                            <li class="breadcrumb-item active">درخواست های تایید نشده</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام کاربری</th>
+                    <th scope="col">شماره تماس</th>
+                    <th scope="col">تاریخ ارسال</th>
+                    <th scope="col">عملیات ها</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let request of requests) {%>
+                    <tr>
+                        <th scope="row">
+                            <%= index++ %>
+                        </th>
+                        <td>
+                            <%= request.user.fullname %>
+                        </td>
+                        <td>
+                            <%= request.user.phone %>
+                        </td>
+                        <td>
+                            <%= jalaliMoment(request.createdAt) %>
+                        </td>
+                        <td class="text-white">
+                            <a href="/admin/detail-request/<%= request._id%>" type="button"
+                                class="btn btn-warning text-white">اطلاعات</a>
+                            <a href="/admin/request-delete/<%= request._id %>" type="button"
+                                class="btn btn-danger">حذف</a>
+                            <% if(request.checked===false){%>
+                                <a href="/admin/checked/<%= request._id %>" type="button"
+                                    class="btn btn-secondary text-white">تایید نشده</a>
+                                <% } else {%>
+                                    <a href="/admin/notchecked/<%= request._id %>" type="button"
+                                        class="btn btn-info">تایید شده</a>
+                                    <%}%>
+                        </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
+        <!-- /.Main Page -->
+        <%- include("../includes/pagination.ejs") %>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/FooterSecure.ejs") %>

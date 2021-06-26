@@ -1,0 +1,35 @@
+<div class="col-sm-12 col-md-4 border">
+    <div class="title-body-profile text-center mt-5">
+        <img class="img-fluid mb-4" src="https://picsum.photos/200" alt="">
+        <p>
+            <%= user.fullname %> <i class="fas fa-users-cog"></i>
+        </p>
+        <h6>تاریخ عضویت شما</h6>
+        <p>
+            <span dir="rtl">
+                <%= jalaliMoment(user.createdAt) %>
+            </span>
+
+            <i class="fas fa-clock"></i>
+        </p>
+        <h6>شماره تماس ثبت شده شما</h6>
+        <p>
+            <%= user.phone %> <i class="fas fa-phone"></i>
+        </p>
+        <h6> پست الکترونیک شما</h6>
+        <p>
+            <%= user.email %> <i class="fas fa-envelope-open"></i>
+        </p>
+    </div>
+    <hr>
+    <div class="footer-body__profile text-center">
+        <p class="my-3">
+            شما همچنان میتوانید برای ثبت درخواست و یا درخواست مشاوره خود از فرم کنار استفاده کنید
+        </p>
+        <hr>
+        <p>
+            پیشاپیش از اعتماد شما متشکریم
+        </p>
+    </div>
+
+</div>

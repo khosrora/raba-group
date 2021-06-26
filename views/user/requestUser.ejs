@@ -1,0 +1,59 @@
+<%- include("../includes/headerUser.ejs") %>
+    <%- include("../includes/flash.ejs") %>
+        <!-- Body PROFILE -->
+        <div class="container my-5">
+            <div class="row">
+                <%- include("../includes/sidebarProfile.ejs") %>
+                    <div class="col-sm-12 col-md-8 border">
+                        <div class="title-profile">
+                            <a class="btn btn-outline-danger" href="/auth/logout"> خروج از حساب کاربری</a>
+                            <a class="btn btn-outline-success" href="/dashboard">بازگشت </a>
+                        </div>
+                        <div class="form-control form-profile__user mt-3 p-3" dir="rtl">
+                            <div>
+                                <h4>درخواست های ارسال شده</h4>
+                                <hr />
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">عنوان</th>
+                                            <th scope="col">تاریخ ارسال</th>
+                                            <th scope="col">وضعیت</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for (let request of requests) {%>
+                                            <tr>
+                                                <th scope="row">
+                                                    <%= index++ %>
+                                                </th>
+                                                <td>
+                                                    <%= truncate( request.title , 20) %>
+                                                </td>
+                                                <td>
+                                                    <%= jalaliMoment(request.createdAt) %>
+                                                </td>
+                                                <td>
+                                                    <% if (request.checked===false ) {%>
+                                                        <span class="badge rounded-pill bg-danger">تایید نشده</span>
+                                                        <%}else {%>
+                                                            <span class="badge rounded-pill bg-success">تایید شده</span>
+                                                            <%}%>
+                                                </td>
+                                            </tr>
+                                            <%}%>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <%- include("../includes/pagination.ejs") %>
+                        </div>
+                        <div class="footer-profile-right text-center mt-2">
+                            <small>بعد از مشاهده مدیریت سایت وضعیت به تایید شده تغییر میکند</small>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- Body PROFILE -->
+
+        <%- include("../includes/Footer.ejs") %>

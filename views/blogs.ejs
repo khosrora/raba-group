@@ -1,0 +1,52 @@
+<%- include("./includes/Header.ejs") %>
+
+    <!-- BLOGS  -->
+
+    <div class="container border my-3 p-4" dir="rtl">
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+                <div class="row">
+                    <% for(let blog of blogs ) {%>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="item border item-card p-2">
+                                <img class="img-fluid" src="./images/sectionSix/software_enginner_1-01.png" alt="">
+                                <div class="border">
+                                    <h6 class="d-block text-center mt-3">
+                                        <%= blog.title %>
+                                    </h6>
+                                    <p class="p-2">
+                                        <%-truncate (blog.desc , 200) %>
+                                    </p>
+                                </div>
+                                <a class="btn btn-secondary text-white w-100"
+                                    href="/detail-blog/<%= blog._id%>">ادامه</a>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <h6>پیشنهاد ما </h6>
+                <% for (let suggest of suggests ) {%>
+                    <a href="">
+                        <hr>
+                        <p>
+                            <%= suggest.title %>
+                        </p>
+                        <br>
+                        <span style="font-size: smaller;">
+                            <%- truncate(suggest.desc , 100) %>
+                        </span>
+                        <hr>
+                    </a>
+                    <%}%>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BLOGS  -->
+
+    <%- include("./includes/Footer.ejs") %>

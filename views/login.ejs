@@ -1,0 +1,35 @@
+<%- include("./includes/flash.ejs") %>
+    <%- include("./includes/error.ejs") %>
+
+
+        <div class="auth-page">
+            <%- include("./includes/rightSidebarAuth.ejs") %>
+                <div class="left-page">
+                    <div class="left-page__title">
+                        <h6 class="left-title">ورود به حساب کاربری</h6>
+                        <p class="left-title"> پست الکترونیک و کلمه عبور خود را وارد کنید</p>
+                    </div>
+                    <form action="/auth/login" method="POST">
+                        <div class="form-g">
+                            <label for="email">پست الکترونیک</label>
+                            <br>
+                            <input type="text" name="email">
+                        </div>
+                        <div class="form-g">
+                            <label for="password">کلمه عبور</label>
+                            <br>
+                            <input type="password" name="password">
+                        </div>
+
+                        <div class="form-g">
+                            <div class="g-recaptcha" data-sitekey="6Lfoqj8bAAAAAO49fslCXK0xCdWecEQ2CD4UPlgl"></div>
+                        </div>
+                        <div class="form-g-btn">
+                            <button type="submit">ورود</button>
+                        </div>
+                        <div class="not-register">
+                            <a href="/auth/register">در صورتی که ثبت نام نکردید <span>از اینجا اقدام کنید</span></a>
+                        </div>
+                    </form>
+                </div>
+        </div>

@@ -1,0 +1,41 @@
+<%- include("../includes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">جزئیات کاربر</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">نام و نام خانوادگی</label>
+            <p>
+                <%= user.fullname %>
+            </p>
+            <label for="">پست الکترونیک</label>
+            <p>
+                <%= user.email %>
+            </p>
+            <label for="">شماره تماس</label>
+            <p>
+                <%= user.phone %>
+            </p>
+            <label for="">تاریخ ثبت نام</label>
+            <p>
+                <%= jalaliMoment(user.createdAt) %>
+            </p>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/FooterSecure.ejs") %>

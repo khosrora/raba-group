@@ -1,0 +1,51 @@
+<%- include("../includes/error.ejs") %>
+<%- include("../includes/headerUser.ejs") %>
+    <%- include("../includes/flash.ejs") %>
+        <!-- Body PROFILE -->
+        <div class="container my-5">
+            <div class="row">
+                <%- include("../includes/sidebarProfile.ejs") %>
+                    <div class="col-sm-12 col-md-8 border">
+                        <div class="title-profile">
+                            <a class="btn btn-outline-danger" href="/auth/logout"> خروج از حساب کاربری</a>
+                            <a class="btn btn-outline-success" href="/dashboard/requests-user">درخواست های ارسال شده</a>
+
+                        </div>
+                        <div class="form-control form-profile__user mt-3 p-3" dir="rtl">
+                            <form action="/dashboard/request" method="POST">
+                                <h4>اطلاعات تماس</h4>
+                                <hr />
+                                <div class="col my-3">
+                                    <input type="text" class="form-control" name="title" placeholder="عنوان">
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="phoneNum"
+                                            placeholder="شماره تماس ضروری">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="phoneNum2"
+                                            placeholder="شماره تماس ضروری">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="email"
+                                            placeholder="پست الکترونیک">
+                                    </div>
+                                </div>
+                                <div class="col my-3">
+                                    <input type="text" class="form-control" name="address" placeholder="آدرس محل کار">
+                                </div>
+                                <div class=" mt-5">
+                                    <label for="exampleFormControlTextarea1" class="form-label">توضیحات درخواست</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        name="request"></textarea>
+                                </div>
+                                <button class="btn btn-outline-dark mt-5" type="submit">ارسال</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- Body PROFILE -->
+
+        <%- include("../includes/Footer.ejs") %>

@@ -1,0 +1,71 @@
+<%- include("./includes/Header.ejs") %>
+    <!-- start Detail Blogs -->
+    <div class="container my-5" dir="rtl">
+        <div class="row">
+            <div class=" col-sm-12 col-md-8">
+                <div class="border rounded p-3">
+                    <div class="text-center">
+                        <img class="img-fluid rounded" src="/uploads/images/<%- detailBlog.image %>" alt="">
+                    </div>  
+                    <div class="title mt-3">
+                        <div class="alert alert-secondary" role="alert">
+                            <%- detailBlog.title %>
+                                <hr />
+                                <span class=" mt-1">
+                                    <small style="font-size: 10px;">
+                                        <%-truncate (detailBlog.desc , 300) %>
+                                    </small>
+                                </span>
+                        </div>
+                    </div>
+                    <p>
+                        <%- detailBlog.desc %>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="border rounded p-3">
+                    <div class="border rounded p-3">
+                        <h6>
+                            نویسنده :
+                            <span>
+                                <%- detailBlog.user.fullname %>
+                            </span>
+                        </h6>
+                        <h6>
+                            تاریخ نگارش :
+                            <span>
+                                <%= jalaliMoment(detailBlog.createdAt) %>
+                            </span>
+                        </h6>
+                    </div>
+                    <div class="border rounded p-3 mt-3">
+                        <a href="">
+                            <img class="img-fluid" src="/images/gif/Untitled-3.gif" alt="">
+                        </a>
+                    </div>
+                    <div class="border rounded p-3 mt-3">
+                        <h6>
+                            این مطالب شاید برای شما جالب باشد
+                        </h6>
+
+                        <% for (let Blog of Blogs ) {%>
+                            <a href="/detail-blog/<%= Blog._id%>">
+                                <hr>
+                                <p>
+                                    <%= Blog.title %>
+                                </p>
+                                <br>
+                                <span style="font-size: smaller;">
+                                    <%-truncate (Blog.desc , 100) %>
+                                </span>
+                                <hr>
+                            </a>
+                            <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Detail Blogs -->
+    <%- include("./includes/Footer.ejs") %>

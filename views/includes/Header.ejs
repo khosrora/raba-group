@@ -1,0 +1,58 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light  d-none d-lg-block">
+        <div class="container">
+            <% if(auth===false){ %>
+                <a class="btn btn-sm btn-light navbar-brand" href="/auth/login">
+                    ورود / ثبت نام
+                </a>
+                <% } else{%>
+                    <a class="btn btn-sm btn-light navbar-brand" href="/dashboard">
+                        پنل کاربری
+                    </a>
+                    <%}%>
+                        <div class="navbar-nav menu">
+                            <a class="nav-link" href="/contactus">تماس با ما <i class="fas fa-phone"></i></a>
+                            <a class="nav-link" href="/aboutus">درباره ما <i class="fas fa-user-friends"></i></a>
+                            <a class="nav-link" href="/blogs">وبلاگ <i class="fas fa-file-alt"></i></a>
+                            <% if(path==="/" ){ %>
+                                <a class="nav-link active" href="/">خانه <i class="fas fa-home"></i></a>
+                                <% } %>
+                        </div>
+        </div>
+    </nav>
+    <!-- responsive menue -->
+    <div class="d-lg-none" dir="rtl">
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="offcanvas offcanvas-end text-end" tabindex="-1" id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header ">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+                <h5 id="offcanvasRightLabel">RaBa.Group</h5>
+            </div>
+            <div class="offcanvas-body text-black-50 ml-auto responsive_menu__text">
+                <a class="nav-link" href="/contactus"> <i class="fas fa-phone"></i> تماس با ما</a>
+                <a class="nav-link" href="/aboutus"> <i class="fas fa-user-friends"></i> درباره ما</a>
+                <a class="nav-link" href="/blogs"><i class="fas fa-file-alt"></i> وبلاگ </a>
+                <% if(path==="/" ){ %>
+                    <a class="nav-link active" href="/"> <i class="fas fa-home"></i> خانه</a>
+                    <% } %>
+            </div>
+        </div>
+        <% if(auth===false){ %>
+            <a class="btn btn-sm btn-light navbar-brand" href="/auth/login">
+                ورود / ثبت نام
+            </a>
+            <% } else{%>
+                <a class="btn btn-sm btn-light navbar-brand" href="/dashboard">
+                    پنل کاربری
+                </a>
+                <%}%>
+    </div>
+    <!-- responsive menue -->
+</header>
+<!-- heder end -->

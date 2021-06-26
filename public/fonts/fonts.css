@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('Vazir.eot'), /* IE9 Compat Modes */
+         url('Vazir.woff2') format('woff2'), /* Super Modern Browsers */
+         url('Vazir.woff') format('woff'), /* Pretty Modern Browsers */
+         url('Vazir.ttf')  format('truetype') /* Safari, Android, iOS */
+  }
+
+  body{
+    font-family: 'Vazir';
+    direction: rtl;
+  }

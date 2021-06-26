@@ -1,0 +1,44 @@
+<%- include("./includes/flash.ejs") %>
+    <%- include("./includes/error.ejs") %>
+        <%- include("./includes/Header.ejs") %>
+            <div class="container mb-5 mt-xs-0 mt-md-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <form class="row g-3" action="/contactus" method="POST" dir="rtl">
+                            <div class="input-group">
+                                <span class="input-group-text">نام و نام خانوادگی</span>
+                                <input type="text" name="firstName" aria-label="First name" class="form-control">
+                                <input type="text" name="lastName" aria-label="Last name" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">پست الکترونیک</label>
+                                <input type="email" name="email" class="form-control" id="email">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="title" class="form-label">عنوان</label>
+                                <input type="text" name="title" class="form-control" id="title">
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">پیام </label>
+                                <textarea class="form-control" name="message" id="message" rows="3"
+                                    name="request"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-outline-dark">ارسال پیام</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-12 col-md-4 border p-3 mt-xs-3 mt-md-0" dir="rtl">
+                        <h6>شماره تماس و پست الکترونیک</h6>
+
+                        <div class="body">
+                            <p>09332839823</p>
+                            <p>09153402208</p>
+                            <p class="h6">khosrora@gmail.com</p>
+                            <p class="h6">hamid@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%- include("./includes/Footer.ejs") %>

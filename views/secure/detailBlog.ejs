@@ -1,0 +1,42 @@
+<%- include("../includes/HeaderSecure.ejs") %>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">ویرایش بلاگ</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- /.Main Page -->
+        <div class="col-8 mr-5">
+            <form accept="/admin/edit-blog" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="image">ارسال عکس</label>
+                    <input name="image" type="file" class="form-control" id="image">
+                </div>
+                <div class="form-group">
+                    <label for="title">عنوان</label>
+                    <input name="title" type="text" class="form-control" id="title" value="<%= detailblog.title %> ">
+                </div>
+                <div class="form-group">
+                    <label for="desc">توضیحات</label>
+                    <textarea name="desc" type="text" class="form-control" id="desc"
+                        value="<%= detailblog.desc %>"> </textarea>
+                </div>
+
+                <button type="submit" class="btn btn-outline-dark">ارسال</button>
+            </form>
+        </div>
+        <!-- /.Main Page -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/FooterSecure.ejs") %>

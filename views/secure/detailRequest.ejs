@@ -1,0 +1,65 @@
+<%- include("../includes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">جزئیات درخواست</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">نام و نام خانوادگی</label>
+            <p>
+                <%= request.user.fullname %>
+            </p>
+            <label for="">پست الکترونیک</label>
+            <p>
+                <%= request.user.email %>
+            </p>
+            <label for="">پست الکترونیک پشتیبان</label>
+            <p>
+                <%= request.email %>
+            </p>
+            <label for="">شماره تماس</label>
+            <p>
+                <%= request.user.phone %>
+            </p>
+            <label for="">شماره تماس ضروری اول</label>
+            <p>
+                <%= request.phoneNum %>
+            </p>
+            <label for="">شماره تماس ضروری دوم</label>
+            <p>
+                <%= request.phoneNum2 %>
+            </p>
+            <label for="">آدرس</label>
+            <p>
+                <%= request.address %>
+            </p>
+            <label for="">شرح درخواست</label>
+            <p>
+                <%= request.request %>
+            </p>
+            <label for="">فعالیت ها</label>
+            <br />
+            <% if(request.checked===false){%>
+                <a href="/admin/checked/<%= request._id %>" type="button" class="btn btn-secondary text-white">تایید
+                    نشده</a>
+                <% } else {%>
+                    <a href="/admin/notchecked/<%= request._id %>" type="button" class="btn btn-info">تایید شده</a>
+                    <%}%>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/FooterSecure.ejs") %>
